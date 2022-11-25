@@ -1,27 +1,69 @@
+\documentclass[10pt,journal,compsoc]{IEEEtran}
+\ifCLASSOPTIONcompsoc
+  % The IEEE Computer Society needs nocompress option
+  % requires cite.sty v4.0 or later (November 2003)
+  \usepackage[nocompress]{cite}
+\else
+  % normal IEEE
+  \usepackage{cite}
+\fi
+\ifCLASSINFOpdf
+\else
+\fi
+\newcommand\MYhyperrefoptions{bookmarks=true,bookmarksnumbered=true,
+pdfpagemode={UseOutlines},plainpages=false,pdfpagelabels=true,
+colorlinks=true,linkcolor={black},citecolor={black},urlcolor={black},
+pdftitle={The evolution of mobile data thecnologies, from
+2G to 5G},%<!CHANGE!
+pdfsubject={Telecommunications},%<!CHANGE!
+pdfauthor={Rafael M. A. Lima},%<!CHANGE!
+pdfkeywords={Computer Engineering, Mobile Communications, Telecommun}}%<^!CHANGE!
 
-\documentclass{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{geometry}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\geometry{a4paper}
-\title{The evolution of mobile data thecnologies, from 2G to 5G\\
-	\large Tema da trabalho \\}
-\author{André Melo, Rafael Lima e Rodrigo Anciães}
-%\date{data}
 \begin{document}
+\title{The evolution of mobile data thecnologies, from 2G to 5G}
+\author{André~Melo,~\IEEEmembership{Student}
+        Rafael~Lima,~\IEEEmembership{Student}
+        and~André~Melo,~\IEEEmembership{Student}% <-this % stops a space
+\IEEEcompsocitemizethanks{\IEEEcompsocthanksitem\protect\\
+\IEEEcompsocthanksitem }% <-this % stops a space
+\thanks{}}
 
-\maketitle
+\markboth{Journal of \LaTeX\ Class Files,~Vol.~14, No.~8, August~2015}%
+{Shell \MakeLowercase{\textit{et al.}}: Bare Advanced Demo of IEEEtran.cls for IEEE Computer Society Journals}
+
+\IEEEtitleabstractindextext{%
 \begin{abstract}
 Mobile communications technologies utilize radio frequencies to be able to perform a range of different things, from voice calls to content drastically changed the way mobile data is transmitted.
 \end{abstract}
-\pagebreak
+
+% Note that keywords are not normally used for peerreview papers.
+\begin{IEEEkeywords}
+Computer Engineering, Mobile Communications, Telecommunications.
+\end{IEEEkeywords}}
+
+
+\maketitle
+
+
+\IEEEdisplaynontitleabstractindextext
+\IEEEpeerreviewmaketitle
+
+
+\ifCLASSOPTIONcompsoc
+\IEEEraisesectionheading{\section{Introduction}\label{sec:introduction}}
+\else
+\section{Introduction}
+\label{sec:introduction}
+\fi
+\IEEEPARstart{T}{his} paper is intended to provide an ambridged overview of the evolution of digital mobile data communications, from 2G to 5G.
+% You must have at least 2 lines in the paragraph with the drop letter
+% (should never be an issue) 
+\hfill November 25, 2022
 
 \section{2G and it's innovations over previous mobile data technologies}
-2G's innovations over it's predecessors lay in it's use of digital signals instead of analogue. While 1G used frequency modulation at a band of band of $824-894MHz$ to encode information, 2G commonly using the encoding method BPSK (Binary Space Shift Keying), which modulates digital information by representing 0 and 1 by different phases on the carrier signal, $ \theta = 0 $ for a binary 1, and $ \theta=\pi $ for a binary 0. 
+2G's innovations over it's predecessors lay in it's use of digital signals instead of analogue. While 1G used frequency modulation at a band of band of $824-894MHz$ to encode information, 2G methods used to encode digital information include BPSK (Binary Phase Shift Keying), which modulates digital information by representing 0 and 1 by different phases on the carrier signal, $ \theta = 0 $ for a binary 1, and $ \theta=\pi $ for a binary 0[1], and GMSK (Gaussian Minimum Shift Keying)
 
-2G also commonly utilizes TDMA and CDMA for it's modulation schemes for dividing it's band between users, having a bitrate of up to 64kbps, and a bandwith of $30-200KHz$. While TDMA has only a single channel, that allocates timeslots each user transmitting data, CDMA dealt with user signal division by giving each user an uniquely ID'd channel(citation needed). Since it's signals are digital, cellphone communication technologies other than phone calls became possible, such as the SMS. 2G's most widely used modulation scheme whowever, GSM (Global System for Mobile Communication), used a mix of TDMA and FDMA. It's total bandwith was divided into multiple frequency channels, and each channel was then divided using the TDMA scheme[2]
+2G also commonly utilizes TDMA and CDMA for it's modulation schemes for dividing it's band between users, having a bitrate of up to 64kbps, and a bandwith of $30-200KHz$. While TDMA has only a single channel, that allocates timeslots each user transmitting data, CDMA dealt with user signal division by giving each user an uniquely ID'd channel(citation needed). Since it's signals are digital, cellphone communication technologies other than phone calls became possible, such as the SMS. 2G's most widely used modulation scheme whowever, GSM (Global System for Mobile Communication), used a mix of TDMA and FDMA, encoding it's digital data trough GMSK. It's total bandwith was divided into multiple frequency channels, and each channel was then divided using the TDMA scheme[2]
 
 \section{3G's incremental approach to improving 2G}
 While 2G's innovations over it's predecessors where massive, the process of innovation from 2G to 3G was much more incremental. 3G's purpose is to serve as an improved version of 2G, with faster data transfer speeds of up to 2Mbps, while having a frequency band of 15-20MHz, making it's use possible for applications such as web browsing and other more data heavy applications.
@@ -43,7 +85,7 @@ Besides its advances and benefits, the 5G technology has unavoidable problems in
 Since mm-waves do not effectively penetrate or diffract around, one of the most relevant cases of attenuation is the case of attenuation due to outdoor to indoor penetration, which can impose losses up to 20-40 dB (may be seen in Fig 1).\par
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.5\textwidth]{Fig1.png}
+\includegraphics[width=\textwidth]{Fig1}
 \caption{Attenuation due to outdoor to indoor penetration}
 \end{figure}
 Another case of attenuation caused by the same motives is the one caused by the shadowing of objects and people, which can cause losses of up to 20 dB.\par
@@ -53,13 +95,31 @@ Besides the vulnerability to attenuation and pathloss, 5G still makes a solid st
 Also, It is worth noting that the IMT-2020 has set minimum requirements for peak data rates in a workable 5G network to be 20Gbps and 10Gbps in the DL and UL respectively [1].\par
 \section
 
-\section{References}
+\section{Conclusion}
+The conclusion goes here.
 
-[1]Sonmez, M., Akbal A. "FPGA-Based BASK and BPSK Modulators Using VHDL:
-Design, Applications and Performance Comparison for Different Modulator Algorithms",International Journal of Computer Applications, USA 2012\newline
-[2]Sempere, J."An overview of the GSM system"\newline
-[3]Opeoluwa Tosin Eluwole, Nsima Udoh, Mike Ojo, Chibuzo Okoro and Akintayo Johnson Akinyoade "From 1G to 5G, What Next?"\newline
-[4]Mansoor Shafi, Andreas F. Molisch, Peter J Smith, Thomas Haustein, Peiying Zhu, Prasan De Silva, Fredrik
-Tufvesson, Anass Benjebbour, Gerhard Wunder"5G: A Tutorial Overview of Standards, Trials, Challenges, Deployment and Practice"
+\begin{thebibliography}{1}
+
+\bibitem{}M.~Sonmez and A.~Akbal \emph{FPGA-Based BASK and BPSK Modulators Using VHDL:
+Design, Applications and Performance Comparison for Different Modulator Algorithms}, International Journal of Computer Applications, 2012
+\bibitem{}J.Sempere \emph{An overview of the GSM system} IEEE Vehicular Technology Society, 1999
+\bibitem{}O.~Eluwole, N.~Udoh, M.~Ojo, C.~Okoro and A.~Akinyoade \emph{From 1G to 5G, What Next?} Hong Kong: IAENG International Journal of Computer Science, 2018
+\bibitem{}M.~Shafi, A.~Molisch, P.~Smith, T.~Haustein, P.~Zhu, P.~Silva, F.~
+Tufvesson, A.~Benjebbour, G.~Wunder\emph{5G: A Tutorial Overview of Standards, Trials, Challenges, Deployment and Practice"} IEEE Journal on Selected Areas in Communications, 2017
+
+\end{thebibliography}
+
+\begin{IEEEbiographynophoto}{André Melo}
+Biography text here.
+\end{IEEEbiographynophoto}
+
+\begin{IEEEbiographynophoto}{Rafael Lima}
+Biography text here.
+\end{IEEEbiographynophoto}
+
+% if you will not have a photo at all:
+\begin{IEEEbiographynophoto}{Rodrigo Anciães}
+Biography text here.
+\end{IEEEbiographynophoto}
 
 \end{document}
