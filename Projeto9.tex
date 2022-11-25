@@ -10,13 +10,22 @@
 \ifCLASSINFOpdf
 \else
 \fi
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+
 \newcommand\MYhyperrefoptions{bookmarks=true,bookmarksnumbered=true,
 pdfpagemode={UseOutlines},plainpages=false,pdfpagelabels=true,
 colorlinks=true,linkcolor={black},citecolor={black},urlcolor={black},
 pdftitle={The evolution of mobile data thecnologies, from
 2G to 5G},%<!CHANGE!
 pdfsubject={Telecommunications},%<!CHANGE!
-pdfauthor={Rafael M. A. Lima},%<!CHANGE!
+pdfauthor={Rafael Estefam Melhado Araujo Lima},%<!CHANGE!
 pdfkeywords={Computer Engineering, Mobile Communications, Telecommun}}%<^!CHANGE!
 
 \begin{document}
@@ -28,7 +37,7 @@ pdfkeywords={Computer Engineering, Mobile Communications, Telecommun}}%<^!CHANGE
 \IEEEcompsocthanksitem }% <-this % stops a space
 \thanks{}}
 
-\markboth{Journal of \LaTeX\ Class Files,~Vol.~14, No.~8, August~2015}%
+\markboth{IEEE Journal on Selected Areas in Communications, November 2022}%
 {Shell \MakeLowercase{\textit{et al.}}: Bare Advanced Demo of IEEEtran.cls for IEEE Computer Society Journals}
 
 \IEEEtitleabstractindextext{%
@@ -36,14 +45,13 @@ pdfkeywords={Computer Engineering, Mobile Communications, Telecommun}}%<^!CHANGE
 Mobile communications technologies utilize radio frequencies to be able to perform a range of different things, from voice calls to content drastically changed the way mobile data is transmitted.
 \end{abstract}
 
-% Note that keywords are not normally used for peerreview papers.
+% Note that keywords are not normally used for peer-review papers.
 \begin{IEEEkeywords}
 Computer Engineering, Mobile Communications, Telecommunications.
 \end{IEEEkeywords}}
 
 
 \maketitle
-
 
 \IEEEdisplaynontitleabstractindextext
 \IEEEpeerreviewmaketitle
@@ -61,42 +69,53 @@ Computer Engineering, Mobile Communications, Telecommunications.
 \hfill November 25, 2022
 
 \section{2G and it's innovations over previous mobile data technologies}
-2G's innovations over it's predecessors lay in it's use of digital signals instead of analogue. While 1G used frequency modulation at a band of band of $824-894MHz$ to encode information, 2G methods used to encode digital information include BPSK (Binary Phase Shift Keying), which modulates digital information by representing 0 and 1 by different phases on the carrier signal, $ \theta = 0 $ for a binary 1, and $ \theta=\pi $ for a binary 0[1], and GMSK (Gaussian Minimum Shift Keying)
+2G's innovations over it's predecessors lay in it's use of digital signals instead of analogue. While 1G used frequency modulation at a band of band of $824-894MHz$ to encode information, 2G methods used to encode digital information, having a bitrate of up to 64kbps, and a bandwith of $30-200KHz$. These modulation methods include BPSK (Binary Phase Shift Keying), which modulates digital information by representing 0 and 1 by different phases on the carrier signal, $ \theta = 0 $ for a binary 1, and $ \theta=\pi $ for a binary 0[1], and GMSK (Gaussian Minimum Shift Keying), which is a variant of MSK (Minimum Shift Keying), which uses a Continous Phase Frequency Shift Key, meaning it uses different frequencies for a binaries 1 and a binary 0, not changing it's  phase with the change in frequency.
 
-2G also commonly utilizes TDMA and CDMA for it's modulation schemes for dividing it's band between users, having a bitrate of up to 64kbps, and a bandwith of $30-200KHz$. While TDMA has only a single channel, that allocates timeslots each user transmitting data, CDMA dealt with user signal division by giving each user an uniquely ID'd channel(citation needed). Since it's signals are digital, cellphone communication technologies other than phone calls became possible, such as the SMS. 2G's most widely used modulation scheme whowever, GSM (Global System for Mobile Communication), used a mix of TDMA and FDMA, encoding it's digital data trough GMSK. It's total bandwith was divided into multiple frequency channels, and each channel was then divided using the TDMA scheme[2]
+2G also commonly utilizes TDMA and CDMA for it's multiple access schemes for dividing it's band in different channels. While TDMA has only a single frequency channel, allocating timeslots each channel transmitting data, CDMA dealt with user signal division dividing it's band, and assigning a channel for each range of frequencies. An illustration of the difference between these two methods can be seen on the figure below. 
+\begin{figure}[h]
+\centering
+\includegraphics[width=5cm]{tdma-Vs-cdma.jpg}
+\caption{Illustrative difference between channel allocation for TDMA and CDMA}
+\end{figure}
+
+Since it's signals are digital, cellphone communication technologies other than phone calls became possible, such as the SMS. 2G's most widely used modulation scheme whowever, GSM (Global System for Mobile Communication), used a mix of TDMA and FDMA, encoding it's digital data trough GMSK. It's total bandwith was divided into multiple frequency channels, and each channel was then divided using the TDMA scheme[2]
 
 \section{3G's incremental approach to improving 2G}
-While 2G's innovations over it's predecessors where massive, the process of innovation from 2G to 3G was much more incremental. 3G's purpose is to serve as an improved version of 2G, with faster data transfer speeds of up to 2Mbps, while having a frequency band of 15-20MHz, making it's use possible for applications such as web browsing and other more data heavy applications.
+While 2G's innovations over it's predecessors where massive, the process of innovation from 2G to 3G was much more incremental. Originally meant to use a single standard according to the UMTS, however, multiple standards where used, such as the UMTS Frequency Division Duplex and Time Division Duplex, and later, 1xEVDO, made to be compliant with CDMA2000 standard. CDMA2000 was made to be compliant with the previously used CDMA standard, as was the incremental nature of the evolution from 2G to 3G
 
-\section{4G}
+3G's main purpose was to serve as an improved version of 2G, with faster data transfer speeds of up to 2Mbps, while having a frequency band of 15-20MHz, making it's use possible for applications such as web browsing and other more data heavy applications.
 
+\section{4G as the turning point for mobile data}
+
+Through a 100 times faster transmission rate, 4g allowed people to use any internet service they wished anywhere. This completely changed the game, since with 4g everyone can now do anything that used to be possible only through a fixed cable network, minimal latency, quality of service (QoS), and a seamless mobile connection for voice and data are now familiar.
+This fourth generation of broadband cellular network technology uses some established standards for achieving all of its capabilities, such as the following. 
+Multiple-input and multiple-output (MIMO) is a transmission method that, fundamentally, uses different antennas for transmitting and receiving information, this way exploiting the multipath propagation [5]; Scheduling algorithm for distributing resources among all the users using simultaneously and asynchronously the connection.
 
 \section{5G and the creation of new structures and capabilitys}
-\paragraph{}
 Differently, from some of its predecessors, 5G aims to be a massive step forward its predecessors focusing on causing a revolutionary impact in terms of data rates, latency, massive connectivity, network reliability, and energy efficiency, creating the need and creating a way to new data transmission structures.\par
 \subsection*{5G's new structures}
-\paragraph{}
 Another step forward made by 5G is the transition from cell centricity to device centricity which exploits and harnesses intelligence at the device side (human or machine) such as via device-to-device (D2D) communication of UE-assisted mobility [3].\par
 Due to the saturation of the already-in-use frequency bands and its consequent lack of bandwidth, 5G is targeting the frequency band in the mm-wave range from 24-100 GHz, creating, due to its approval, a new communication-only band.\par
 In addition to 5G new structures, massive MIMO stands out as a key enabling capability. Also called MU-MIMO, it is a significantly enhanced form of MIMO technology that uses a collection of antennas orchestrated to concurrently serve multiple tens of UEs using a one-time frequent slot i.e. same time-frequency resource [3]. Also, the high frequency in that 5G operates, makes it possible to deploy large-scale antenna arrays at the base station, which are used to provide array gain to overcome higher path loss and provide spatial multiplexing gain [2].\par
 \subsection*{5G's some conterpoints to the 5G use}
-\paragraph{}
 Besides its advances and benefits, the 5G technology has unavoidable problems in transmission as higher attenuation and dispersion than its predecessors.\par
-Since mm-waves do not effectively penetrate or diffract around, one of the most relevant cases of attenuation is the case of attenuation due to outdoor to indoor penetration, which can impose losses up to 20-40 dB (may be seen in Fig 1).\par
+Since mm-waves do not effectively penetrate or diffract around, one of the most relevant cases of attenuation is the case of attenuation due to outdoor to indoor penetration, which can impose losses up to 20-40 dB (may be seen in Fig 2).\par
 \begin{figure}[h]
 \centering
-\includegraphics[width=\textwidth]{Fig1}
+\includegraphics[width=5cm]{Fig1.png}
 \caption{Attenuation due to outdoor to indoor penetration}
 \end{figure}
 Another case of attenuation caused by the same motives is the one caused by the shadowing of objects and people, which can cause losses of up to 20 dB.\par
 \subsection*{5G data rates}
-\paragraph{}
-Besides the vulnerability to attenuation and pathloss, 5G still makes a solid step forward in data rate, being up to 1Tbps theoretically, though this volume is just expected to be achieved by 2030. Meanwhile, peak data rates over 10Gbps may be achieved in specific scenarios such as indoor and dense outdoor environments, in this case, A range of 10-50Gbps can be achieved for low mobility users, with ≥ 100Mbps cell-edge data rate guaranteed for 95% of the users [1].\par
-Also, It is worth noting that the IMT-2020 has set minimum requirements for peak data rates in a workable 5G network to be 20Gbps and 10Gbps in the DL and UL respectively [1].\par
-\section
+Besides the vulnerability to attenuation and pathloss, 5G still makes a solid step forward in data rate, being up to 1Tbps theoretically, though this volume is just expected to be achieved by 2030. Meanwhile, peak data rates over 10Gbps may be achieved in specific scenarios such as indoor and dense outdoor environments, in this case, A range of 10-50Gbps can be achieved for low mobility users, with $\geq 100Mbps$ cell-edge data rate guaranteed for 95% of the users [1].\par
+Also, It is worth noting that the IMT-2020 has set minimum requirements for peak data rates in a workable 5G network to be 20Gbps and 10Gbps in the DL and UL respectively [1].
+
+\subsection*{The future with 5G}
+In the end, is important to notice the importance of the IoT inside the 5G key capabilities playing a pivotal role in enhancing living standards and production and service automation, once The trending 5 G-enabled IoT encompasses increased data rates, better coverage, and high throughput hence providing solutions to business models and leading to a world where everything is accessible on less time and effort[5].
 
 \section{Conclusion}
-The conclusion goes here.
+During this review it has been presented the step by steps of the principal revolutions and particularities of the evolution of data mobility and communication, through the advances in the 1G, 2G, 3G, 4G, and 5g, visiting the changes in protocols, data modulation, and data transmission methods and how they transformed the society, improving the amount and how fast data is transmitted, improving its stability and lowering latency, amplifying its range and making it accessible to the population.
+\par No matter each one of the evolutions (1G...5G) is analyzed, it is indubitable that each one fully transformed the way the population and the industry related to the technology and administrated its communication, being caused by high hardware and software advances they still have needs to be addressed in the future such as problems in standardization and problems in transmission penetration, which create ways to further improvements and evolutions in the future that may, again, change the way the society live.
 
 \begin{thebibliography}{1}
 
@@ -106,20 +125,8 @@ Design, Applications and Performance Comparison for Different Modulator Algorith
 \bibitem{}O.~Eluwole, N.~Udoh, M.~Ojo, C.~Okoro and A.~Akinyoade \emph{From 1G to 5G, What Next?} Hong Kong: IAENG International Journal of Computer Science, 2018
 \bibitem{}M.~Shafi, A.~Molisch, P.~Smith, T.~Haustein, P.~Zhu, P.~Silva, F.~
 Tufvesson, A.~Benjebbour, G.~Wunder\emph{5G: A Tutorial Overview of Standards, Trials, Challenges, Deployment and Practice"} IEEE Journal on Selected Areas in Communications, 2017
+\bibitem{}K.~Kaboutari and V.~Hosseini\emph{A compact 4-element printed planar MIMO antenna system with isolation enhancement for ISM band operation} Science Direct, 2021
 
 \end{thebibliography}
-
-\begin{IEEEbiographynophoto}{André Melo}
-Biography text here.
-\end{IEEEbiographynophoto}
-
-\begin{IEEEbiographynophoto}{Rafael Lima}
-Biography text here.
-\end{IEEEbiographynophoto}
-
-% if you will not have a photo at all:
-\begin{IEEEbiographynophoto}{Rodrigo Anciães}
-Biography text here.
-\end{IEEEbiographynophoto}
 
 \end{document}
